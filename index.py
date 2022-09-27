@@ -1,4 +1,6 @@
 import math
+from time import sleep
+import matplotlib.pyplot as plt
 BLACK = '\033[30m'
 RED = '\033[31m'
 GREEN = '\033[32m'
@@ -10,11 +12,20 @@ WHITE = '\033[37m'
 RESET = '\033[39m'
 a = input(f"{GREEN}Ingrese el Punto A(x1,y1): {RESET}")
 val1 =a.split(',')
-print(f" Valores para el punto A({val1[0]},{val1[1]}) ")
+x1=int(val1[0])
+y1=int(val1[1])
+sleep(1)
+print(f" Valores para el punto A({x1},{y1}) ")
 b = input(f"{GREEN}Ingrese el Punto B(x2,y2): {RESET}")
 val2 =b.split(',')
-print(f" Valores para el punto  B({val2[0]},{val2[1]}) ")
-
-operation=((int(val2[0])-int(val1[0]))**2 + (int(val2[1])-int(val1[1]))**2)
+x2=int(val2[0])
+y2=int(val2[1])
+print(f" Valores para el punto  B({x2},{y2}) ")
+sleep(2)
+operation=((x2-x1)**2 + (y2-y1)**2)
 d= math.sqrt(operation)
-print(f"{RED} Dista de  A hacia la B {round(d,2)}{RESET} ")
+print(f"{RED} Distancia entre A({x1},{y1}) y B({x2},{y2}) es : {round(d,2)}{RESET} ")
+sleep(4)
+fig, ax = plt.subplots()
+ax.plot([x1, x2], [y1, y2])
+plt.show()
